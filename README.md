@@ -1,3 +1,8 @@
+### Two branches - first_try and second_try
+### second_try is merged into master - and it is a main branch - it lloks at 3 previouse data sets and try to predict the next trade order
+### first_try is seek for a profit based on THIS data set
+
+
 
 # Trading home task
 
