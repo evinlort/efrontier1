@@ -1,5 +1,4 @@
 #!/bin/bash
 
-python3.8 run.py
-
+python3 run.py
 node evaluator.js

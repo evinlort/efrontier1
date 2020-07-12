@@ -1,3 +1,4 @@
+from __future__ import annotations
 from typing import List, Optional
 
 
@@ -15,13 +16,17 @@ class Asset:
 
 
 class Stream:
-    def __init__(self, coefficient: int = 1):
-        self.coeff = coefficient
+    def __init__(self):
+        # self.coefficient = 1
         self.output_stream = []
         self.count = 0
         self.time = None
         self.trade = dict()
         self.assets: List[List[Asset]] = []  # list of 2 lists of dicts
+
+    def set_coefficient(self, coefficient: int) -> Stream:
+        self.coefficient = coefficient
+        return self
 
     def set(self, timestamp: str, assets: dict) -> bool:
         self.time = timestamp
@@ -47,13 +52,13 @@ class Stream:
             if ask_diff32 > 0:
                 ask_div = abs(ask_diff21 / ask_diff32)
             else:
-                ask_div = self.coeff
+                ask_div = self.coefficient
             if bid_diff32 > 0:
                 bid_div = (bid_diff21 / bid_diff32)
             else:
-                bid_div = self.coeff
+                bid_div = self.coefficient
 
-            if ask_div < self.coeff or bid_div < self.coeff:
+            if ask_div < self.coefficient or bid_div < self.coefficient:
                 if ask_diff21 - ask_diff32 > bid_diff21 - bid_diff32:
                     trade["actions"].append(f"buy{a1[i].name.upper()}")
                 else:

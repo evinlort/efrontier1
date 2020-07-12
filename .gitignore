@@ -1,1 +1,4 @@
 .idea/
+.vscode/
+output.json
+app/__pycache__/*.pyc
